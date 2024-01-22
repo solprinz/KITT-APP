@@ -15,10 +15,10 @@ const CardItem = ({ item, navigation }) => {
   const dispatch = useDispatch();
 
   return (
-    <View>
+    <View style={styles.container}>
       <Pressable
-        style={styles.container}
-        /*   onPress={() => {
+
+      /*   onPress={() => {
           dispatch(setProductSelected(item.id));
           navigation.navigate("Gato", { id: item.id });
         }} */
@@ -44,7 +44,7 @@ export default CardItem;
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
+    flexDirection: "column",
     backgroundColor: colors.background,
     margin: 10,
     borderWidth: 1,

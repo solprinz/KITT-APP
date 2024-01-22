@@ -12,7 +12,7 @@ const InfoStack = () => {
       initialRouteName="InfoUtil"
       screenOptions={({ route }) => {
         return {
-          header: () => <Header title="InfoUtil" />,
+          header: () => <Header title="Info Util" />,
         };
       }}
     >

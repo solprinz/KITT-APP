@@ -3,20 +3,19 @@ import { colors } from "../global/colors";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
-const ItemDetail = ({ route, navigation, category }) => {
+const CatDetail = ({ route, navigation }) => {
   const dispatch = useDispatch();
-  const product = useSelector((state) => state.shop.value.productSelected);
-  const images = product.images ? product.images : [];
+  const item = useSelector((state) => state.value.productSelected);
 
   return (
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={{ uri: images[2] }}
+        source={{ uri: item.image }}
         resizeMode="cover"
       />
-      <Text style={styles.title}>{product.title}</Text>
-      <Text>{product.description}</Text>
+      <Text style={styles.title}>{item.title}</Text>
+      {/*  <Text>{product.description}</Text>
       <Text style={styles.price}>Precio: ${product.price}</Text>
       <Pressable
         style={styles.button}
@@ -29,15 +28,16 @@ const ItemDetail = ({ route, navigation, category }) => {
         onPress={() => navigation.navigate("Category", { category })}
       >
         <Text style={styles.buttonText}>Volver atrás</Text>
-      </Pressable>
+      </Pressable> */}
     </View>
   );
 };
 
-export default ItemDetail;
+export default CatDetail;
 
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
     width: "100%",
     flex: 1,
     justifyContent: "start",
