@@ -24,6 +24,7 @@ const Perfil = ({ navigation }) => {
       <Pressable onPress={() => navigation.navigate("ImageSelector")}>
         <Text> Cambiar imagen</Text>
       </Pressable>
+
       <Text style={styles.title}>Mi nombre</Text>
       <Campo label="Mis datos" />
       <Campo label="Configuración de la cuenta" />
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    marginTop: 20,
+    backgroundColor: "white",
   },
   image: {
     width: 200,

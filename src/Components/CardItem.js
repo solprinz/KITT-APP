@@ -44,7 +44,8 @@ export default CardItem;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "column",
+    /*     flexDirection: "column", */
+
     backgroundColor: colors.background,
     margin: 10,
     borderWidth: 1,
@@ -52,7 +53,6 @@ const styles = StyleSheet.create({
     width: "40%",
     height: 250,
   },
-
   title: {
     textAlign: "center",
     fontSize: 16,

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
-import InputForm from "../Components/InputForm";
 import { useLoginMutation } from "../app/services/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/auth/authSlice";
 import { colors } from "../global/colors";
 import ButtonPrimary from "../Components/ButtonPrimary";
 import ButtonSecondary from "../Components/ButtonSecondary";
+import InputAuth from "../Components/InputAuth";
 
 const Login = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -31,14 +31,14 @@ const Login = ({ navigation }) => {
           resizeMode="cover"
           style={styles.image}
         />
-        <InputForm
+        <InputAuth
           label="Email"
           value={email}
           onChangeText={(t) => setEmail(t)}
           isSecure={false}
           error=""
         />
-        <InputForm
+        <InputAuth
           label="Password"
           value={password}
           onChangeText={(t) => setPassword(t)}

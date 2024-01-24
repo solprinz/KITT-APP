@@ -10,8 +10,8 @@ const CatsList = ({ navigation, route }) => {
   const { data, isLoading, error } = useGetProductsQuery();
   const [keyword, setKeyword] = useState("");
 
-  if (error) console.log(error);
-  if (!isLoading) console.log(data);
+  /*   if (error) console.log(error);
+  if (!isLoading) console.log(data); */
   const [gatos, setGatos] = useState();
 
   return (
@@ -32,13 +32,11 @@ export default CatsList;
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "row",
-    flex: 1,
     backgroundColor: "white",
     color: colors.secondary,
-    justifyContent: "center",
-    alignItems: "center",
+    /*  justifyContent: "center",
+    alignItems: "center", */
+    flexDirection: "row",
   },
   list: {
     flexDirection: "column",

@@ -13,7 +13,7 @@ export default ButtonPrimary;
 
 const styles = StyleSheet.create({
   button: {
-    width: "100%",
+    width: "90%",
     backgroundColor: colors.primary,
     padding: 10,
     alignItems: "enter",

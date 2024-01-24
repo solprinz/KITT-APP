@@ -3,6 +3,12 @@ import { Provider } from "react-redux";
 import { colors } from "./src/global/colors";
 import MainNavigator from "./src/Navigation/MainNavigator";
 import { store } from "./src/app/services/store";
+import { init } from "./src/database/index";
+
+init()
+  .then(() => console.log("DB Initialized"))
+  .catch((err) => console.log(err));
+
 const App = () => {
   return (
     <>

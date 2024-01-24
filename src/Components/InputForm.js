@@ -1,51 +1,69 @@
-import { StyleSheet, Text, View, TextInput } from "react-native";
-import { colors } from "../global/colors";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  Input,
+  TextInput,
+} from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
-const InputForm = ({ label, value, onChangeText, isSecure, error }) => {
+const InputForm = ({
+  placeholder,
+  label,
+  value,
+  onChangeText,
+  isSecure,
+  error,
+  title,
+}) => {
   return (
-    <View style={styles.inputContainer}>
-      <Text style={styles.titleInput}>{label}</Text>
-      <TextInput
-        value={value}
-        onChangeText={onChangeText}
-        style={styles.input}
-        secureTextEntry={isSecure}
-      />
-      {error ? (
-        <View>
-          <Text style={styles.error}>{error}</Text>
-        </View>
-      ) : null}
-    </View>
+    <Pressable>
+      <View>
+        <Text style={styles.title}>{title}</Text>
+      </View>
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          value={value}
+          onChangeText={onChangeText}
+          secureTextEntry={isSecure}
+          placeholder={placeholder}
+        >
+          {label}
+        </TextInput>
+
+        <MaterialIcons
+          style={styles.arrow}
+          name="arrow-forward-ios"
+          size={15}
+          marginLeft={10}
+        />
+      </View>
+    </Pressable>
   );
 };
 
 export default InputForm;
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    width: "100%",
+  container: {
+    flexDirection: "row",
+    borderBottomWidth: 0.5,
+    padding: 7,
+  },
+  title: {
+    fontSize: 12,
+    color: "grey",
+    marginLeft: 5,
   },
   input: {
-    width: "90%",
-    borderWidth: 0,
-    borderBottomWidth: 3,
-    borderBottomColor: colors.green3,
-    padding: 2,
-
-    fontSize: 14,
-    marginHorizontal: "5%",
-    marginVertical: 5,
-  },
-  titleInput: {
-    width: "90%",
-    marginHorizontal: "5%",
+    width: 350,
     fontSize: 16,
   },
-  error: {
-    fontSize: 16,
-    color: "red",
-    fontStyle: "italic",
-    marginLeft: 20,
+  arrow: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 10,
   },
 });

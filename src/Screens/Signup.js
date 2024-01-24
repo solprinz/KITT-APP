@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
-import InputForm from "../Components/InputForm";
 
 import { colors } from "../global/colors";
 import { useSignupMutation } from "../app/services/auth";
@@ -9,6 +8,7 @@ import { setUser } from "../features/auth/authSlice";
 import { signupSchema } from "../validations/signupSchema";
 import ButtonPrimary from "../Components/ButtonPrimary";
 import ButtonSecondary from "../Components/ButtonSecondary";
+import InputAuth from "../Components/InputAuth";
 
 const Signup = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -60,21 +60,21 @@ const Signup = ({ navigation }) => {
           resizeMode="cover"
           style={styles.image}
         />
-        <InputForm
+        <InputAuth
           label="Email"
           value={email}
           onChangeText={(t) => setEmail(t)}
           isSecure={false}
           error={emailError}
         />
-        <InputForm
+        <InputAuth
           label="Contraseña"
           value={password}
           onChangeText={(t) => setPassword(t)}
           isSecure={true}
           error={passwordError}
         />
-        <InputForm
+        <InputAuth
           label="Repetir contraseña"
           value={confirmPassword}
           onChangeText={(t) => setConfirmPassword(t)}
