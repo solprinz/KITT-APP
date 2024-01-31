@@ -1,16 +1,22 @@
-import { Button, Image, StyleSheet, Text, View, Pressable } from "react-native";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import React from "react";
 import { useGetProfileImageQuery } from "../app/services/adoptarService";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { colors } from "../global/colors";
-
 import Campo from "../Components/Campo";
 import ButtonPrimary from "../Components/ButtonPrimary";
-import ButtonSecondary from "../Components/ButtonSecondary";
+import { deleteAllSession } from "../database";
+import { clearUser } from "../features/auth/authSlice";
 
 const Perfil = ({ navigation }) => {
+  const dispatch = useDispatch();
   const localId = useSelector((state) => state.auth.value.localId);
   const { data } = useGetProfileImageQuery(localId);
+
+  const onLogout = () => {
+    deleteAllSession().then((result) => console.log(result));
+    dispatch(clearUser());
+  };
 
   return (
     <View style={styles.container}>
@@ -31,7 +37,7 @@ const Perfil = ({ navigation }) => {
 
       <Campo label="Ayuda" />
 
-      <ButtonPrimary title="Cerrar sesión" />
+      <ButtonPrimary title="Cerrar sesión" onPress={onLogout} />
       <ButtonPrimary title="Eliminar cuenta" />
     </View>
   );

@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-
 import Header from "../Components/Header";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Perfil from "../Screens/Perfil";

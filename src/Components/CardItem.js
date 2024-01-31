@@ -17,11 +17,10 @@ const CardItem = ({ item, navigation }) => {
   return (
     <View style={styles.container}>
       <Pressable
-
-      /*   onPress={() => {
+        onPress={() => {
           dispatch(setProductSelected(item.id));
           navigation.navigate("Gato", { id: item.id });
-        }} */
+        }}
       >
         <Image
           style={styles.image}
@@ -33,7 +32,7 @@ const CardItem = ({ item, navigation }) => {
             {item.nombre}
           </Text>
           <Text style={styles.text}>{item.edad}</Text>
-          <Text style={styles.text}>{item.genero}</Text>
+          <Text style={styles.text}>{item.sexo}</Text>
         </View>
       </Pressable>
     </View>

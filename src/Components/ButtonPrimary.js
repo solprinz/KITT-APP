@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     alignItems: "enter",
     borderRadius: 10,
     margin: 5,
+    marginTop: 20,
   },
   text: {
     textAlign: "center",

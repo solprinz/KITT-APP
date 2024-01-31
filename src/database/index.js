@@ -30,3 +30,31 @@ export const insertSession = ({ localId, email, idToken }) => {
   });
   return promise;
 };
+
+export const fetchSession = () => {
+  const promise = new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        "SELECT * FROM sessionUser",
+        [],
+        (_, result) => resolve(result),
+        (_, err) => reject(err)
+      );
+    });
+  });
+  return promise;
+};
+
+export const deleteAllSession = () => {
+  const promise = new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        "DELETE FROM sessionUser",
+        [],
+        (_, result) => resolve(result),
+        (_, err) => reject(err)
+      );
+    });
+  });
+  return promise;
+};

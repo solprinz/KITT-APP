@@ -1,35 +1,61 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { colors } from "../global/colors";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import ButtonPrimary from "../Components/ButtonPrimary";
 
 const CatDetail = ({ route, navigation }) => {
   const dispatch = useDispatch();
-  const item = useSelector((state) => state.value.productSelected);
+  const product = useSelector((state) => state.adoptar.value.productSelected);
+  /*   const images = .images ? product.images : []
+
+   */
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Image
         style={styles.image}
-        source={{ uri: item.image }}
         resizeMode="cover"
+        source={{ uri: product.imagen }}
       />
-      <Text style={styles.title}>{item.title}</Text>
-      {/*  <Text>{product.description}</Text>
-      <Text style={styles.price}>Precio: ${product.price}</Text>
-      <Pressable
-        style={styles.button}
-        onPress={() => dispatch(addItem(product))}
-      >
-        <Text style={styles.buttonText}>Agregar al carrito</Text>
-      </Pressable>
-      <Pressable
-        style={styles.goBack}
-        onPress={() => navigation.navigate("Category", { category })}
-      >
-        <Text style={styles.buttonText}>Volver atrás</Text>
-      </Pressable> */}
-    </View>
+      <View style={styles.boxs}>
+        <View style={styles.boxDatos}>
+          <Text style={styles.text}> Edad:</Text>
+          <Text style={styles.bold}>{product.edad}</Text>
+        </View>
+        <View style={styles.boxNombre}>
+          <Text style={styles.text2}>Nombre:</Text>
+          <Text style={styles.bold2}>{product.nombre}</Text>
+        </View>
+        <View style={styles.boxDatos}>
+          <Text style={styles.text}>Sexo:</Text>
+          <Text style={styles.bold}>{product.sexo}</Text>
+        </View>
+      </View>
+      <Text style={styles.title}>Salud:</Text>
+      <Text>Vacunas: {product.vacunas}</Text>
+      <Text>Desparasitado: {product.desparasitado}</Text>
+      <Text>Esterilizado: {product.esterilizado}</Text>
+      <Text>Problemas de salud: {product.problemas}</Text>
+      <Text>Última visita al veterinario: {product.veterinario}</Text>
+      <Text style={styles.title}>Historia:</Text>
+      <Text> {product.historia}</Text>
+
+      <Text style={styles.title}>Personalidad:</Text>
+      <Text> {product.personalidad}</Text>
+
+      <ButtonPrimary title="Postularse" />
+      <View>
+        <Text style={styles.text}></Text>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -40,25 +66,66 @@ const styles = StyleSheet.create({
     display: "flex",
     width: "100%",
     flex: 1,
-    justifyContent: "start",
-    alignItems: "center",
-    padding: 10,
-    backgroundColor: colors.background,
+    /*     justifyContent: "start", */
+    paddingLeft: 10,
+    paddingRight: 10,
+    backgroundColor: "white",
+    marginBottom: 90,
+    paddingBottom: 250,
   },
   image: {
-    width: "100%",
-    height: 300,
+    width: "80%",
+    height: 400,
+    alignSelf: "center",
   },
-  price: {
-    color: "blue",
-    margin: 30,
-  },
-  title: {
+  nombre: {
     fontSize: 30,
     textAlign: "center",
     color: colors.accent,
     marginBottom: 10,
   },
+  boxs: {
+    flexDirection: "row",
+    alignSelf: "space-evenly",
+    color: colors.primary,
+  },
+  boxDatos: {
+    flexDirection: "column",
+    borderWidth: 1,
+    borderColor: colors.primary,
+    borderRadius: 10,
+    backgroundColor: colors.background,
+    marginLeft: 10,
+    width: "25%",
+    textAlign: "center",
+    height: 60,
+    marginTop: 10,
+  },
+  boxNombre: {
+    flexDirection: "column",
+    borderWidth: 1,
+    borderColor: colors.primary,
+    borderRadius: 10,
+    padding: 15,
+    backgroundColor: colors.accent,
+    marginLeft: 10,
+    width: "40%",
+    textAlign: "center",
+  },
+  title: { fontWeight: "bold", fontSize: 16, margin: 10 },
+  bold: {
+    fontWeight: "bold",
+    color: colors.primary,
+    textAlign: "center",
+  },
+  text: { color: colors.primary, textAlign: "center", marginTop: 10 },
+  bold2: {
+    fontWeight: "bold",
+    color: colors.background,
+    textAlign: "center",
+    fontSize: 18,
+  },
+  text2: { color: colors.background, textAlign: "center" },
   button: {
     backgroundColor: colors.accent,
     fontSize: 50,

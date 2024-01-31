@@ -9,6 +9,7 @@ import { useGetProductsQuery } from "../app/services/adoptarService";
 const CatsList = ({ navigation, route }) => {
   const { data, isLoading, error } = useGetProductsQuery();
   const [keyword, setKeyword] = useState("");
+  const [items, setItems] = useState();
 
   /*   if (error) console.log(error);
   if (!isLoading) console.log(data); */
@@ -20,7 +21,9 @@ const CatsList = ({ navigation, route }) => {
         <FlatList
           data={data}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <CardItem item={item} />}
+          renderItem={({ item }) => (
+            <CardItem item={item} navigation={navigation} route={route} />
+          )}
           style={styles.list}
         />
       </View>

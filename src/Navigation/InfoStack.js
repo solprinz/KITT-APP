@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View } from "react-native";
-
 import Header from "../Components/Header";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import InfoUtil from "../Screens/InfoUtil";

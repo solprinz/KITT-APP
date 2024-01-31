@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import allGatos from "../../Data/gatos.json";
 
 const initialState = {
   value: {
-    /*     gatos: allCats, */
+    gatos: allGatos,
     productSelected: {},
     /*     productsFilteredByCategory: [],
      */
@@ -14,8 +15,8 @@ export const adoptarSlice = createSlice({
   initialState,
   reducers: {
     setProductSelected: (state, actions) => {
-      state.value.productSelected = state.value.products.find(
-        (item) => item.id === actions.payload
+      state.value.productSelected = state.value.gatos.find(
+        (product) => product.id === actions.payload
       );
     },
   },

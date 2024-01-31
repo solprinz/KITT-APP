@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
-
 import { colors } from "../global/colors";
 import { useSignupMutation } from "../app/services/auth";
 import { useDispatch } from "react-redux";
@@ -9,6 +8,7 @@ import { signupSchema } from "../validations/signupSchema";
 import ButtonPrimary from "../Components/ButtonPrimary";
 import ButtonSecondary from "../Components/ButtonSecondary";
 import InputAuth from "../Components/InputAuth";
+import insertSession from "../database/index";
 
 const Signup = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,13 @@ const Signup = ({ navigation }) => {
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   useEffect(() => {
-    if (isSuccess) dispatch(setUser(data));
+    if (isSuccess) {
+      dispatch(setUser(data));
+      console.log(data);
+      insertSession(data)
+        .then((result) => console.log(result))
+        .catch((err) => console.log(err));
+    }
     if (isError) console.log(error);
   }, [data, isError, isSuccess]);
 
