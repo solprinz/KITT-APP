@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     width: "90%",
     backgroundColor: colors.primary,
     padding: 10,
-    alignItems: "enter",
+    alignSelf: "center",
     borderRadius: 10,
     margin: 5,
     marginTop: 20,

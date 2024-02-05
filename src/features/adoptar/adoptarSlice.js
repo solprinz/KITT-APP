@@ -1,12 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import allGatos from "../../Data/gatos.json";
+import {
+  useGetProductQuery,
+  useGetProductsQuery,
+} from "../../app/services/adoptarService";
+/* 
+const { data, isLoading, error } = useGetProductQuery(); */
 
 const initialState = {
   value: {
     gatos: allGatos,
+    /*     gatos: data, */
     productSelected: {},
-    /*     productsFilteredByCategory: [],
-     */
   },
 };
 

@@ -2,7 +2,6 @@ import { StyleSheet, FlatList, Pressable, Text, View } from "react-native";
 
 import { colors } from "../global/colors";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import CardItem from "../Components/CardItem";
 import { useGetProductsQuery } from "../app/services/adoptarService";
 
@@ -18,14 +17,17 @@ const CatsList = ({ navigation, route }) => {
   return (
     <>
       <View style={styles.container}>
-        <FlatList
-          data={data}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <CardItem item={item} navigation={navigation} route={route} />
-          )}
-          style={styles.list}
-        />
+        <View>
+          <FlatList
+            data={data}
+            keyExtractor={(item) => item.id.toString()}
+            numColumns={2}
+            renderItem={({ item }) => (
+              <CardItem item={item} navigation={navigation} route={route} />
+            )}
+            contentContainerStyle={styles.list}
+          />
+        </View>
       </View>
     </>
   );
@@ -36,12 +38,14 @@ export default CatsList;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
+    marginBottom: 90,
     color: colors.secondary,
+    justifyContent: "center",
     /*  justifyContent: "center",
     alignItems: "center", */
-    flexDirection: "row",
+    margin: 10,
   },
   list: {
-    flexDirection: "column",
+    borderWidth: 1,
   },
 });

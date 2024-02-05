@@ -8,7 +8,7 @@ import { signupSchema } from "../validations/signupSchema";
 import ButtonPrimary from "../Components/ButtonPrimary";
 import ButtonSecondary from "../Components/ButtonSecondary";
 import InputAuth from "../Components/InputAuth";
-import insertSession from "../database/index";
+import { insertSession } from "../database/index";
 
 const Signup = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -24,10 +24,9 @@ const Signup = ({ navigation }) => {
   useEffect(() => {
     if (isSuccess) {
       dispatch(setUser(data));
-      console.log(data);
       insertSession(data)
         .then((result) => console.log(result))
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(error));
     }
     if (isError) console.log(error);
   }, [data, isError, isSuccess]);

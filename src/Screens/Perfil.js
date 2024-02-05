@@ -1,5 +1,4 @@
 import { Image, StyleSheet, Text, View, Pressable } from "react-native";
-import React from "react";
 import { useGetProfileImageQuery } from "../app/services/adoptarService";
 import { useSelector, useDispatch } from "react-redux";
 import { colors } from "../global/colors";
@@ -31,14 +30,12 @@ const Perfil = ({ navigation }) => {
         <Text> Cambiar imagen</Text>
       </Pressable>
 
-      <Text style={styles.title}>Mi nombre</Text>
       <Campo label="Mis datos" />
       <Campo label="Configuración de la cuenta" />
 
       <Campo label="Ayuda" />
 
       <ButtonPrimary title="Cerrar sesión" onPress={onLogout} />
-      <ButtonPrimary title="Eliminar cuenta" />
     </View>
   );
 };

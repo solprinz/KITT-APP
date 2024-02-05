@@ -15,19 +15,20 @@ const CardItem = ({ item, navigation }) => {
   const dispatch = useDispatch();
 
   return (
-    <View style={styles.container}>
+    <View style={styles.cardContainer}>
       <Pressable
         onPress={() => {
           dispatch(setProductSelected(item.id));
           navigation.navigate("Gato", { id: item.id });
         }}
+        style={styles.pressable}
       >
         <Image
           style={styles.image}
           resizeMode="cover"
           source={{ uri: item.imagen }}
         />
-        <View>
+        <View style={styles.textContainer}>
           <Text style={width > 350 ? styles.title : styles.minText}>
             {item.nombre}
           </Text>
@@ -39,38 +40,40 @@ const CardItem = ({ item, navigation }) => {
   );
 };
 
-export default CardItem;
-
 const styles = StyleSheet.create({
-  container: {
-    /*     flexDirection: "column", */
-
+  cardContainer: {
     backgroundColor: colors.background,
     margin: 10,
     borderWidth: 1,
     borderRadius: 10,
-    width: "40%",
-    height: 250,
+    width: "45%",
+    overflow: "hidden",
+    elevation: 2,
+    justifyContent: "center",
+  },
+  pressable: {
+    flex: 1,
+  },
+  image: {
+    height: 220,
+  },
+  textContainer: {
+    padding: 8,
   },
   title: {
-    textAlign: "center",
     fontSize: 16,
+    fontWeight: "bold",
     color: colors.primary,
-  },
-  text: {
     textAlign: "center",
   },
   minText: {
-    width: "80%",
-    margin: 5,
-    textAlign: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10,
-    fontSize: 15,
+    fontSize: 14,
   },
-  image: {
-    minWidth: 100,
-    minHeight: 150,
+  text: {
+    fontSize: 14,
+    marginTop: 4,
+    textAlign: "center",
   },
 });
+
+export default CardItem;

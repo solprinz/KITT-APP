@@ -50,11 +50,8 @@ const CatDetail = ({ route, navigation }) => {
 
       <Text style={styles.title}>Personalidad:</Text>
       <Text> {product.personalidad}</Text>
-
-      <ButtonPrimary title="Postularse" />
-      <View>
-        <Text style={styles.text}></Text>
-      </View>
+      <ButtonPrimary title="¡Quiero adoptarlo/a" />
+      <Text style={styles.text}></Text>
     </ScrollView>
   );
 };
@@ -104,7 +101,7 @@ const styles = StyleSheet.create({
   boxNombre: {
     flexDirection: "column",
     borderWidth: 1,
-    borderColor: colors.primary,
+    borderColor: colors.secondary,
     borderRadius: 10,
     padding: 15,
     backgroundColor: colors.accent,
@@ -112,7 +109,7 @@ const styles = StyleSheet.create({
     width: "40%",
     textAlign: "center",
   },
-  title: { fontWeight: "bold", fontSize: 16, margin: 10 },
+  title: { fontWeight: "bold", fontSize: 17, marginTop: 10, marginBottom: 10 },
   bold: {
     fontWeight: "bold",
     color: colors.primary,
@@ -133,17 +130,5 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 10,
     margin: 10,
-  },
-  buttonText: {
-    color: colors.secondary,
-    textAlign: "center",
-    margin: 10,
-  },
-  goBack: {
-    backgroundColor: colors.primary,
-    fontSize: 50,
-    width: 200,
-    height: 40,
-    borderRadius: 10,
   },
 });

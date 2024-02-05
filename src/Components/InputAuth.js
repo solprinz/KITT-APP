@@ -2,9 +2,25 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import { colors } from "../global/colors";
 
 const InputAuth = ({ label, value, onChangeText, isSecure, error }) => {
+  /*  const [keyboardStatus, setKeyboardStatus] = useState('');
+
+  useEffect(() => {
+    const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardStatus('Keyboard Shown');
+    });
+    const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardStatus('Keyboard Hidden');
+    });
+
+    return () => {
+      showSubscription.remove();
+      hideSubscription.remove();
+    };
+  }, []); */
   return (
     <View style={styles.inputContainer}>
       <Text style={styles.titleInput}>{label}</Text>
+
       <TextInput
         value={value}
         onChangeText={onChangeText}
