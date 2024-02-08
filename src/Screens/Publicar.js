@@ -1,14 +1,13 @@
-import { useState } from "react";
-import { StyleSheet, Text, View, Switch, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import SwitchItem from "../Components/SwitchItem";
 import InputForm from "../Components/InputForm";
 import Campo from "../Components/Campo";
 import ButtonPrimary from "../Components/ButtonPrimary";
+import { useState } from "react";
+import React, { Component } from "react";
+import MyDatePicker from "../Components/DatePicker";
 
 const Publicar = ({ value }) => {
-  /* const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState); */
-
   return (
     <ScrollView
       style={styles.container}
@@ -20,6 +19,7 @@ const Publicar = ({ value }) => {
         <InputForm title="Nombre" label="" value={value} />
         <InputForm title="Género" label="" />
         <InputForm title="Fecha estimada de nacimiento" label="" />
+        {/*  <MyDatePicker /> */}
         <Campo label="Seleccionar fotos del gato" />
         <Text style={styles.title}>DATOS VETERINARIOS</Text>
         <SwitchItem title="Vacunado/a" />

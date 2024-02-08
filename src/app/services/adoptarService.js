@@ -7,10 +7,10 @@ export const adoptarApi = createApi({
   tagTypes: ["image"],
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: (category) => `gatos.json`,
+      query: () => `gatos.json`,
     }),
     getProduct: builder.query({
-      query: () => `gatos/${id}.json`,
+      query: (id) => `gatos/${id}.json`,
     }),
     postProfileImage: builder.mutation({
       //para guardar en firebase la imagen que tomamos

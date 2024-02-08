@@ -1,17 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import allGatos from "../../Data/gatos.json";
-import {
-  useGetProductQuery,
-  useGetProductsQuery,
-} from "../../app/services/adoptarService";
-/* 
-const { data, isLoading, error } = useGetProductQuery(); */
+import { useGetProductQuery } from "../../app/services/adoptarService";
 
 const initialState = {
   value: {
     gatos: allGatos,
-    /*     gatos: data, */
-    productSelected: {},
+    productSelected: null,
   },
 };
 
@@ -26,7 +20,21 @@ export const adoptarSlice = createSlice({
     },
   },
 });
-
-export const { setProductSelected } = adoptarSlice.actions;
+/* export const adoptarSlice = createSlice({
+  name: "adoptar",
+  initialState,
+  reducers: {
+    setProducts: (state, action) => {
+      state.value.gatos = action.payload;
+    },
+    setProductSelected: (state, action) => {
+      state.value.productSelected = state.value.gatos.find(
+        (product) => product.id === action.payload
+      );
+    },
+  },
+});
+ */
+export const { setProductSelected /* setProducts  */ } = adoptarSlice.actions;
 
 export default adoptarSlice.reducer;

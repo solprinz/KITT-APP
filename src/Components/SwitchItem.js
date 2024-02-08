@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     padding: 7,
   },
   text: {
-    width: 330,
+    width: 320,
     marginTop: 10,
     fontSize: 16,
     paddingBottom: 10,

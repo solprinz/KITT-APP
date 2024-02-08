@@ -1,4 +1,5 @@
 import {
+  Button,
   Image,
   Pressable,
   ScrollView,
@@ -10,13 +11,11 @@ import { colors } from "../global/colors";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import ButtonPrimary from "../Components/ButtonPrimary";
+import { Entypo } from "@expo/vector-icons";
 
 const CatDetail = ({ route, navigation }) => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.adoptar.value.productSelected);
-  /*   const images = .images ? product.images : []
-
-   */
 
   return (
     <ScrollView style={styles.container}>
@@ -31,14 +30,29 @@ const CatDetail = ({ route, navigation }) => {
           <Text style={styles.bold}>{product.edad}</Text>
         </View>
         <View style={styles.boxNombre}>
-          <Text style={styles.text2}>Nombre:</Text>
-          <Text style={styles.bold2}>{product.nombre}</Text>
+          <Text style={{ color: colors.background, textAlign: "center" }}>
+            Nombre:
+          </Text>
+          <Text
+            style={{
+              fontWeight: "bold",
+              color: colors.background,
+              textAlign: "center",
+              fontSize: 18,
+            }}
+          >
+            {product.nombre}
+          </Text>
         </View>
         <View style={styles.boxDatos}>
           <Text style={styles.text}>Sexo:</Text>
           <Text style={styles.bold}>{product.sexo}</Text>
         </View>
       </View>
+      <Text style={{ fontStyle: "italic", marginTop: 5 }}>
+        <Entypo name="location-pin" size={14} color="black" />
+        Ubicación: {product.ubicacion}
+      </Text>
       <Text style={styles.title}>Salud:</Text>
       <Text>Vacunas: {product.vacunas}</Text>
       <Text>Desparasitado: {product.desparasitado}</Text>
@@ -50,7 +64,13 @@ const CatDetail = ({ route, navigation }) => {
 
       <Text style={styles.title}>Personalidad:</Text>
       <Text> {product.personalidad}</Text>
-      <ButtonPrimary title="¡Quiero adoptarlo/a" />
+      <Text style={{ fontStyle: "italic", marginTop: 10, textAlign: "right" }}>
+        Fecha de publicación:{product.fecha}
+      </Text>
+      <ButtonPrimary
+        title="¡Quiero adoptarlo/a"
+        onPress={() => navigation.navigate("Formulario")}
+      />
       <Text style={styles.text}></Text>
     </ScrollView>
   );
@@ -63,7 +83,6 @@ const styles = StyleSheet.create({
     display: "flex",
     width: "100%",
     flex: 1,
-    /*     justifyContent: "start", */
     paddingLeft: 10,
     paddingRight: 10,
     backgroundColor: "white",
@@ -116,13 +135,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   text: { color: colors.primary, textAlign: "center", marginTop: 10 },
-  bold2: {
-    fontWeight: "bold",
-    color: colors.background,
-    textAlign: "center",
-    fontSize: 18,
-  },
-  text2: { color: colors.background, textAlign: "center" },
   button: {
     backgroundColor: colors.accent,
     fontSize: 50,
