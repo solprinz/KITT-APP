@@ -37,7 +37,7 @@ const ImageSelector = ({ navigation }) => {
 
   const confirmImage = () => {
     triggerProfileImage({ localId, image });
-    navigation.goBack(); //vuelve una pantalla para atrás
+    navigation.goBack();
   };
 
   return (

@@ -3,11 +3,9 @@ import {
   View,
   Text,
   StyleSheet,
-  Pressable,
   Image,
   KeyboardAvoidingView,
 } from "react-native";
-import { colors } from "../global/colors";
 import { useSignupMutation } from "../app/services/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/auth/authSlice";
@@ -43,7 +41,7 @@ const Signup = ({ navigation }) => {
       setEmailError("");
       setPasswordError("");
       setConfirmPasswordError("");
-      await triggerSignup({ email, password }); // Espera la promesa
+      await triggerSignup({ email, password });
       await signupSchema.validate(
         { email, password, confirmPassword },
         { abortEarly: false }

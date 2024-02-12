@@ -1,8 +1,6 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 import { colors } from "../global/colors";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const InfoUtil = () => {
   return (

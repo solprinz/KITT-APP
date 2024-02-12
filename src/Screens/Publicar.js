@@ -3,9 +3,6 @@ import SwitchItem from "../Components/SwitchItem";
 import InputForm from "../Components/InputForm";
 import Campo from "../Components/Campo";
 import ButtonPrimary from "../Components/ButtonPrimary";
-import { useState } from "react";
-import React, { Component } from "react";
-import MyDatePicker from "../Components/DatePicker";
 
 const Publicar = ({ value, navigation }) => {
   const enviarForm = () => {
@@ -30,9 +27,10 @@ const Publicar = ({ value, navigation }) => {
       <View>
         <Text style={styles.title}>INFORMACIÓN DEL GATO</Text>
         <InputForm title="Nombre" label="" value={value} />
-        <InputForm title="Género" label="" />
+        <View>
+          <InputForm title="Género (Macho o Hembra)" label="" />
+        </View>
         <InputForm title="Fecha estimada de nacimiento" label="" />
-        {/*  <MyDatePicker /> */}
         <Campo label="Seleccionar fotos del gato" />
         <Text style={styles.title}>DATOS VETERINARIOS</Text>
         <SwitchItem title="Vacunado/a" />

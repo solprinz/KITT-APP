@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import CatsList from "../Screens/CatstList";
 import Header from "../Components/Header";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -25,5 +24,3 @@ const AdoptarStack = () => {
 };
 
 export default AdoptarStack;
-
-const styles = StyleSheet.create({});

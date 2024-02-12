@@ -156,26 +156,3 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-
-{
-  /* <Tab.Screen
-        name="HomeStack"
-        component={HomeStack}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <>
-              <Image
-                style={styles.image}
-                resizeMode="cover"
-                source={
-                  focused
-                    ? "../../assets/img/home.png"
-                    : "../../assets/img/home2.png"
-                } //esto no funciona
-              />
-              <Text style={{ color: focused ? "red" : "black" }}>Home</Text>
-            </>
-          ),
-        }}
-      /> */
-}

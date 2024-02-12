@@ -10,7 +10,7 @@ const PerfilStack = () => {
   return (
     <Stack.Navigator
       initialRouteName="Perfil"
-      screenOptions={({ route }) => {
+      screenOptions={({}) => {
         return {
           header: () => <Header title="Perfil" />,
         };

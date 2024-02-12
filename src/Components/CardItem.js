@@ -70,17 +70,17 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   title: {
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 20,
     color: colors.primary,
     textAlign: "center",
+    fontFamily: "Protest",
   },
   minText: {
     fontSize: 14,
   },
   text: {
     fontSize: 14,
-    marginTop: 4,
+    marginTop: 1,
     textAlign: "center",
     justifyContent: "space-evenly",
     flexDirection: "row",

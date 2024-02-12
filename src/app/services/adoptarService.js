@@ -14,7 +14,7 @@ export const adoptarApi = createApi({
     }),
     postProfileImage: builder.mutation({
       query: ({ localId, image }) => ({
-        url: `profileImage/${localId}.json`, //crea en firebase un objeto x cada imagen
+        url: `profileImage/${localId}.json`,
         method: "PUT",
         body: { image },
       }),
@@ -28,7 +28,6 @@ export const adoptarApi = createApi({
   }),
 });
 
-//para exportar, agregarle el use al principio y Query al final
 export const {
   useGetProductQuery,
   useGetProductsQuery,

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const Campo = ({ label }) => {

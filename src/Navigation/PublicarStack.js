@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import Header from "../Components/Header";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Publicar from "../Screens/Publicar";
@@ -9,7 +8,7 @@ const PublicarStack = () => {
   return (
     <Stack.Navigator
       initialRouteName="Publicar"
-      screenOptions={({ route }) => {
+      screenOptions={({}) => {
         return {
           header: () => <Header title="Publicar" />,
         };
@@ -21,5 +20,3 @@ const PublicarStack = () => {
 };
 
 export default PublicarStack;
-
-const styles = StyleSheet.create({});

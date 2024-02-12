@@ -1,4 +1,4 @@
-import { Text, Pressable, Image, StyleSheet, View, Button } from "react-native";
+import { Text, Pressable, Image, StyleSheet, View } from "react-native";
 import { colors } from "../global/colors";
 import { MaterialIcons } from "@expo/vector-icons";
 
@@ -67,14 +67,17 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   title: {
-    fontSize: 28,
+    fontSize: 30,
     textAlign: "center",
-    margin: 10,
+    marginTop: 20,
+    fontFamily: "Protest",
+    color: colors.accent,
   },
   subtitle: {
     fontSize: 18,
     margin: 10,
     textAlign: "center",
+    color: colors.primary,
   },
   items: {
     display: "flex",
@@ -97,5 +100,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: "50%",
   },
-  image: {},
 });

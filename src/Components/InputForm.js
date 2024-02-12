@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-  Input,
-  TextInput,
-} from "react-native";
+import { StyleSheet, Text, View, Pressable, TextInput } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const InputForm = ({
