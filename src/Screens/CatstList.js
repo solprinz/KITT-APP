@@ -1,17 +1,15 @@
-import { StyleSheet, FlatList, Pressable, Text, View } from "react-native";
+import { StyleSheet, FlatList, View } from "react-native";
 
 import { colors } from "../global/colors";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CardItem from "../Components/CardItem";
 import { useGetProductsQuery } from "../app/services/adoptarService";
 
 const CatsList = ({ navigation, route }) => {
   const { data, isLoading, error } = useGetProductsQuery();
-  const [keyword, setKeyword] = useState("");
-  const [items, setItems] = useState();
 
-  /*   if (error) console.log(error);
-  if (!isLoading) console.log(data); */
+  if (error) console.log(error);
+
   const [gatos, setGatos] = useState();
 
   return (
@@ -41,11 +39,5 @@ const styles = StyleSheet.create({
     marginBottom: 90,
     color: colors.secondary,
     justifyContent: "center",
-    /*  justifyContent: "center",
-    alignItems: "center", */
-    margin: 10,
-  },
-  list: {
-    borderWidth: 1,
   },
 });

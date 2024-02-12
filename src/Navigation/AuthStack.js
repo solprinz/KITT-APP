@@ -9,7 +9,7 @@ const AuthStack = () => {
   return (
     <Stack.Navigator
       initialRouteName="Signup"
-      screenOptions={({ route }) => {
+      screenOptions={({}) => {
         return {
           header: () => <Header title="Bienvenido/a a KittApp" />,
         };

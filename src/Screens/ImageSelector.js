@@ -48,7 +48,7 @@ const ImageSelector = ({ navigation }) => {
         resizeMode="cover"
       />
       <ButtonPrimary title="Tomar foto" onPress={pickImage} />
-      <ButtonPrimary title="Confirm photo" onPress={confirmImage} />
+      <ButtonPrimary title="Guardar foto" onPress={confirmImage} />
     </View>
   );
 };

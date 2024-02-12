@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-const Campo = ({ label, value }) => {
+const Campo = ({ label }) => {
   return (
     <Pressable style={styles.container}>
       <Text style={styles.text}>{label}</Text>
-
       <MaterialIcons
         style={styles.arrow}
         name="arrow-forward-ios"

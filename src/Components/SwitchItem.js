@@ -12,7 +12,6 @@ const SwitchItem = ({ title }) => {
       <Switch
         style={styles.switch}
         trackColor={{ false: "grey", true: colors.primary }}
-        /*  thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"} */
         ios_backgroundColor="#3e3e3e"
         onValueChange={toggleSwitch}
         value={isEnabled}

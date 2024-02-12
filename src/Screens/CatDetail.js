@@ -1,22 +1,14 @@
-import {
-  Button,
-  Image,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { colors } from "../global/colors";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 import ButtonPrimary from "../Components/ButtonPrimary";
 import { Entypo } from "@expo/vector-icons";
+import { useGetProductQuery } from "../app/services/adoptarService";
 
 const CatDetail = ({ route, navigation }) => {
-  const dispatch = useDispatch();
-  const product = useSelector((state) => state.adoptar.value.productSelected);
+  const { id } = route.params;
+  const { data: product, isLoading } = useGetProductQuery(id);
 
+  if (isLoading) return null;
   return (
     <ScrollView style={styles.container}>
       <Image

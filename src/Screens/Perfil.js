@@ -29,12 +29,9 @@ const Perfil = ({ navigation }) => {
       <Pressable onPress={() => navigation.navigate("ImageSelector")}>
         <Text> Cambiar imagen</Text>
       </Pressable>
-
       <Campo label="Mis datos" />
       <Campo label="Configuración de la cuenta" />
-
       <Campo label="Ayuda" />
-
       <ButtonPrimary title="Cerrar sesión" onPress={onLogout} />
     </View>
   );

@@ -1,37 +1,16 @@
 import { StyleSheet, Text, View, TextInput } from "react-native";
-import { colors } from "../global/colors";
 
 const InputAuth = ({ label, value, onChangeText, isSecure, error }) => {
-  /*  const [keyboardStatus, setKeyboardStatus] = useState('');
-
-  useEffect(() => {
-    const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
-      setKeyboardStatus('Keyboard Shown');
-    });
-    const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
-      setKeyboardStatus('Keyboard Hidden');
-    });
-
-    return () => {
-      showSubscription.remove();
-      hideSubscription.remove();
-    };
-  }, []); */
   return (
     <View style={styles.inputContainer}>
       <Text style={styles.titleInput}>{label}</Text>
-
       <TextInput
+        style={styles.input}
         value={value}
         onChangeText={onChangeText}
-        style={styles.input}
         secureTextEntry={isSecure}
       />
-      {error ? (
-        <View>
-          <Text style={styles.error}>{error}</Text>
-        </View>
-      ) : null}
+      {error ? <Text style={styles.error}>{error}</Text> : null}
     </View>
   );
 };
@@ -44,10 +23,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "90%",
-    borderWidth: 0,
     borderBottomWidth: 3,
-    borderBottomColor: colors.green3,
-    padding: 2,
     fontSize: 14,
     marginHorizontal: "5%",
     marginVertical: 5,

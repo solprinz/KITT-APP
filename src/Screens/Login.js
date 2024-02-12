@@ -69,38 +69,23 @@ export default Login;
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
   },
   container: {
     width: "90%",
-    gap: 15,
-    borderRadius: 10,
-    justifyContent: "center",
+    gap: 10,
     alignItems: "center",
-    paddingVertical: 20,
   },
   image: {
     height: "40%",
   },
-  title: {
-    fontSize: 22,
-  },
   sub: {
     fontSize: 14,
     marginTop: 40,
-  },
-  button: {
-    width: "100%",
-    backgroundColor: colors.secondary,
-    padding: 10,
-    alignItems: "enter",
-    borderRadius: 10,
-  },
-  text: {
     textAlign: "center",
-    color: "white",
-    fontSize: 18,
+  },
+  error: {
+    color: "red",
   },
 });

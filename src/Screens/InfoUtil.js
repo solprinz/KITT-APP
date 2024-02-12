@@ -6,11 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const InfoUtil = () => {
   return (
-    <ScrollView
-      style={styles.container}
-      /*       automaticallyAdjustContentInsets={true}
-      alwaysBounceVertical={true} */
-    >
+    <ScrollView style={styles.container}>
       <Image
         source={require("../../assets/img/Esterilizar.png")}
         resizeMode="cover"
@@ -101,7 +97,6 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     width: "100%",
-    /*     alignItems: "center", */
     backgroundColor: "white",
     marginBottom: 90,
     paddingBottom: 100,

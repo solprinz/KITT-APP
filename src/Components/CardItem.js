@@ -9,8 +9,9 @@ import {
 import { colors } from "../global/colors";
 import { useDispatch } from "react-redux";
 import { setProductSelected } from "../features/adoptar/adoptarSlice";
+import { Entypo } from "@expo/vector-icons";
 
-const CardItem = ({ item, navigation }) => {
+const CardItem = ({ item, navigation, route }) => {
   const { width } = useWindowDimensions();
   const dispatch = useDispatch();
 
@@ -32,8 +33,16 @@ const CardItem = ({ item, navigation }) => {
           <Text style={width > 350 ? styles.title : styles.minText}>
             {item.nombre}
           </Text>
-          <Text style={styles.text}>{item.edad}</Text>
-          <Text style={styles.text}>{item.sexo}</Text>
+          <View style={styles.text}>
+            <Text>{item.sexo}</Text>
+            <Text>{item.edad}</Text>
+          </View>
+          <View style={styles.sub}>
+            <Entypo name="location-pin" size={14} color="grey" />
+            <Text style={{ fontStyle: "italic", color: "grey" }}>
+              {item.ubicacion}
+            </Text>
+          </View>
         </View>
       </Pressable>
     </View>
@@ -73,6 +82,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 4,
     textAlign: "center",
+    justifyContent: "space-evenly",
+    flexDirection: "row",
+  },
+  sub: {
+    marginTop: 4,
+    flexDirection: "row",
+    justifyContent: "center",
   },
 });
 

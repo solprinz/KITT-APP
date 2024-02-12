@@ -13,7 +13,6 @@ export const adoptarApi = createApi({
       query: (id) => `gatos/${id}.json`,
     }),
     postProfileImage: builder.mutation({
-      //para guardar en firebase la imagen que tomamos
       query: ({ localId, image }) => ({
         url: `profileImage/${localId}.json`, //crea en firebase un objeto x cada imagen
         method: "PUT",

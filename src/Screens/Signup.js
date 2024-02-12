@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Pressable, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  Image,
+  KeyboardAvoidingView,
+} from "react-native";
 import { colors } from "../global/colors";
 import { useSignupMutation } from "../app/services/auth";
 import { useDispatch } from "react-redux";
@@ -31,40 +38,43 @@ const Signup = ({ navigation }) => {
     if (isError) console.log(error);
   }, [data, isError, isSuccess]);
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     try {
       setEmailError("");
       setPasswordError("");
       setConfirmPasswordError("");
-      signupSchema.validateSync({ email, password, confirmPassword });
-      triggerSignup({ email, password });
+      await triggerSignup({ email, password }); // Espera la promesa
+      await signupSchema.validate(
+        { email, password, confirmPassword },
+        { abortEarly: false }
+      );
     } catch (error) {
-      console.log(error.path);
-      console.log(error.message);
-      switch (error.path) {
-        case "email":
-          setEmailError(error.message);
-          break;
-        case "password":
-          setPasswordError(error.message);
-          break;
-        case "password":
-          setConfirmPasswordError(error.message);
-          break;
-        default:
-          break;
+      if (error.name === "ValidationError") {
+        const errors = {};
+        error.inner.forEach((err) => {
+          errors[err.path] = err.message;
+        });
+        setEmailError(errors.email || "");
+        setPasswordError(errors.password || "");
+        setConfirmPasswordError(errors.confirmPassword || "");
+      } else {
+        console.log(error);
       }
     }
   };
 
   return (
-    <View style={styles.main}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.main}
+    >
       <View style={styles.container}>
         <Image
           source={require("../../assets/img/Signup.png")}
           resizeMode="cover"
           style={styles.image}
         />
+
         <InputAuth
           label="Email"
           value={email}
@@ -87,13 +97,13 @@ const Signup = ({ navigation }) => {
           error={confirmPasswordError}
         />
         <ButtonPrimary title="Crear cuenta" onPress={onSubmit} />
-        <Text style={styles.sub}>¿Ya estás registrado?</Text>
+        <Text style={styles.text}>¿Ya estás registrado?</Text>
         <ButtonSecondary
           title="Iniciar sesión"
           onPress={() => navigation.navigate("Login")}
         />
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -102,41 +112,19 @@ export default Signup;
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
   },
   container: {
     width: "90%",
-    gap: 15,
-    borderRadius: 10,
-    justifyContent: "center",
+    gap: 10,
     alignItems: "center",
-    paddingVertical: 20,
   },
   image: {
     height: "40%",
   },
-  title: {
-    fontSize: 22,
-  },
-  sub: {
+  text: {
     fontSize: 14,
     marginTop: 10,
-  },
-  button: {
-    width: "100%",
-    backgroundColor: colors.secondary,
-    padding: 10,
-    alignItems: "enter",
-    borderRadius: 10,
-  },
-  text: {
-    textAlign: "center",
-    color: "white",
-    fontSize: 18,
-  },
-  buttonback: {
-    backgroundColor: "black",
   },
 });

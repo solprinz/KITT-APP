@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import Header from "../Components/Header";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import InfoUtil from "../Screens/InfoUtil";
@@ -11,7 +11,7 @@ const InfoStack = () => {
       initialRouteName="InfoUtil"
       screenOptions={({ route }) => {
         return {
-          header: () => <Header title="Info Util" />,
+          header: () => <Header title="Info Útil" />,
         };
       }}
     >

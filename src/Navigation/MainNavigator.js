@@ -15,7 +15,6 @@ const MainNavigator = () => {
         const session = await fetchSession();
         if (session.rows.length) {
           const user = session.rows._array[0];
-          console.log("El usuario es:", user, "MainNavigator");
           dispatch(setUser(user));
         }
       } catch (error) {

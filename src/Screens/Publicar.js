@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Alert } from "react-native";
 import SwitchItem from "../Components/SwitchItem";
 import InputForm from "../Components/InputForm";
 import Campo from "../Components/Campo";
@@ -7,7 +7,20 @@ import { useState } from "react";
 import React, { Component } from "react";
 import MyDatePicker from "../Components/DatePicker";
 
-const Publicar = ({ value }) => {
+const Publicar = ({ value, navigation }) => {
+  const enviarForm = () => {
+    Alert.alert(
+      "¡Se ha enviado correctamente tu publicación! ",
+      "Revisaremos los datos proporcionados antes de publicarlo.",
+      [
+        {
+          text: "Cerrar",
+          onPress: () => navigation.navigate("Home"),
+          style: "cancel",
+        },
+      ]
+    );
+  };
   return (
     <ScrollView
       style={styles.container}
@@ -37,7 +50,7 @@ const Publicar = ({ value }) => {
         <InputForm placeholder="Ubicación" />
       </View>
       <View style={{ margin: 10 }}></View>
-      <ButtonPrimary title="Publicar" />
+      <ButtonPrimary title="Publicar" onPress={enviarForm} />
     </ScrollView>
   );
 };
@@ -48,15 +61,12 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     width: "100%",
-    /*     alignItems: "center", */
     backgroundColor: "white",
     marginBottom: 90,
     paddingBottom: 100,
     flex: 1,
   },
   title: {
-    /*    color: colors.primary,
-    textAlign: "center", */
     marginTop: 20,
     marginBottom: 5,
     marginLeft: 10,
